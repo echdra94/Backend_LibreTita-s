@@ -7,6 +7,7 @@ SHOW TABLES; -- Muestra tablas de la DB
  INSERT INTO usuario -- AGREGAR ELEMENTOS
 VALUES (null, "Alejandra", "Echavarria", "alejandraegib@gmail.com", "Alejandra123!", 8341010016, 1),
         (null, "Natalia", "Esquivel", "nataliaeo12@gmail.com", "NataliaEO12@", 5589631585, 1);
+        (null, "Mariell", "Zamora", "zamoramariell29@gmail.com", "MarZamora29!", 5581808909, 1);
  -- Modificación tipo de variable de decripción de 100 a 150: VARCHAR(150)
  ALTER TABLE producto
  MODIFY COLUMN descripcion VARCHAR(150) NOT NULL;
