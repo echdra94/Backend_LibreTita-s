@@ -33,4 +33,4 @@ VALUES (null, "Modelo: Taquilla", "Libreta tamaño media carta, cubierta tapa du
  (NULL, "2025-09-06", 750, 2),
  (NULL, "2025-08-20", 500, 3),
  (NULL, "2025-07-04" ,600,3),
- (NULL, "2025-08-2025",600,3);
+ (NULL, "2025-08-25",600,3);
