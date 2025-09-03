@@ -16,7 +16,7 @@ VALUES (null, "Alejandra", "Echavarria", "alejandraegib@gmail.com", "Alejandra12
 
  -- Modificación tipo de variable de decripción de 100 a 150: VARCHAR(150)
  ALTER TABLE producto
- MODIFY COLUMN descripcion VARCHAR(150) NOT NULL;
+ MODIFY COLUMN descripcion VARCHAR(500) NOT NULL;
  -- Llenado tabla Producto
  SELECT * FROM producto; -- Muestra contenido en tabla producto
  
@@ -26,11 +26,11 @@ VALUES (null, "Modelo: Taquilla", "Libreta tamaño media carta, cubierta tapa du
  (null, "Modelo: Burrito de Mar", "Libreta tamaño media carta, cubierta tapa dura de vinipiel suave al tacto, encuadernado tipo costura francesa, papel rayado, 90 hojas", 500, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038922/IMG_20220731_224841_t9kffe.jpg", 7),
  (null , "Modelo: IPN anatómico","Libreta tamaño media carta, cubierta tapa dura, encuadernado tipo wire-o, papel rayado, 90 hojas",250, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038923/IMG_20220809_205901_vi3581.jpg" ,3),
  (null, "Modelo: Tradicional", "Libreta media carta, cubierta dura , con 90 hojas, encuadernado tipo wire-o, lista para ti.", 250, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038923/agenda_guinda_simulacion_2_riicmb.png", 3),
- (null, "Modelo: Huelum", "Libreta tamaño media carta, cubierta dura, encuadernado tipo wire-o, papel rayado, 90 hojas", 250, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038924/4_f5vumn.png"),
- (null, "Modelo: Lazarillo", "Libreta pocket,pasta blanda,con 60 hojas,comoda para llevar a todas partes.", 200, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038923/IMG_20220731_224530_l6j4lu.jpg"),
- (null, "Modelo: Esimio", "Libreta pocket con 60 hojas, ofrece un espacio para tomar notas, escribir tus aventuras o escribir ideas. Su tamaño hace que sean portables y ocupen poco espacio en tu bolsa o mochila", 200, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038923/IMG_20220731_224040_pbkirv.jpg"),
- (null, "Modelo: México", "libreta profesional con 90 hojas, con encuadernación anillada wire-o, cuadro grande. Ideal para tus apuntes escolares o grandes ideas que requieran un amplio espacio para ser plasmadas.", 250, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038923/Modelo_M%C3%A9xico_1_pxjtwr.png"),
- (null, "Carpeta: Insignia", "carpeta profesional, con encuadernación en tapa dura y capacidad para 250 hojas, las cuales se venden por separado pudiendo elegir el modelo de tu elección.", 300, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038922/insignia_c1_g0tlm7.jpg");
+ (null, "Modelo: Huelum", "Libreta tamaño media carta, cubierta dura, encuadernado tipo wire-o, papel rayado, 90 hojas", 250, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038924/4_f5vumn.png",5),
+ (null, "Modelo: Lazarillo", "Libreta pocket,pasta blanda,con 60 hojas,comoda para llevar a todas partes.", 200, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038923/IMG_20220731_224530_l6j4lu.jpg",5),
+ (null, "Modelo: Esimio", "Libreta pocket con 60 hojas, ofrece un espacio para tomar notas, escribir tus aventuras o escribir ideas. Su tamaño hace que sean portables y ocupen poco espacio en tu bolsa o mochila", 200, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038923/IMG_20220731_224040_pbkirv.jpg",5),
+ (null, "Modelo: México", "libreta profesional con 90 hojas, con encuadernación anillada wire-o, cuadro grande. Ideal para tus apuntes escolares o grandes ideas que requieran un amplio espacio para ser plasmadas.", 250, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038923/Modelo_M%C3%A9xico_1_pxjtwr.png",5),
+ (null, "Carpeta: Insignia", "carpeta profesional, con encuadernación en tapa dura y capacidad para 250 hojas, las cuales se venden por separado pudiendo elegir el modelo de tu elección.", 300, "https://res.cloudinary.com/libretitaspi/image/upload/v1755038922/insignia_c1_g0tlm7.jpg",5);
 
  -- Llenado tabla Orden
  SELECT * FROM orden; -- Muestra contenido en tabla orden
@@ -41,3 +41,18 @@ VALUES (null, "Modelo: Taquilla", "Libreta tamaño media carta, cubierta tapa du
  (NULL, "2025-08-20", 500, 3),
  (NULL, "2025-07-04" ,600,3),
  (NULL, "2025-08-25",600,3);
+ 
+SELECT * FROM producto_has_orden;
+INSERT INTO producto_has_orden (fk_idProduct, fk_idOrden)
+VALUES
+(56, 1),
+(57, 1),
+(58, 2),
+(59, 2),
+(60, 3),
+(61, 3),
+(62, 4),
+(63, 4),
+(64, 5),
+(65, 5),
+(65, 5);

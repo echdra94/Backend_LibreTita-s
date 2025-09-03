@@ -20,9 +20,9 @@ USE `DB_LibreTitas` ;
 CREATE TABLE IF NOT EXISTS `DB_LibreTitas`.`Producto` (
   `idProducto` INT NOT NULL AUTO_INCREMENT,
   `nombreProducto` VARCHAR(45) NOT NULL,
-  `descripcion` VARCHAR(100) NOT NULL,
+  `descripcion` VARCHAR(500) NOT NULL,
   `precio` DOUBLE NOT NULL,
-  `imagen` VARCHAR(200) NOT NULL,
+  `imagen` VARCHAR(250) NOT NULL,
   `existencias` INT ZEROFILL NOT NULL,
   PRIMARY KEY (`idProducto`))
 ENGINE = InnoDB;
