@@ -1,35 +1,48 @@
 package com.libretitas.database.model;
 
 public class ProductoHasOrden {
-	private Long fkIdProduct;
-	private Long fkIdOrden;
+	private Long id;
+	private Integer fkIdProduct;
+	private Integer fkIdOrden;
 	private static long total=0;
 	
-	public ProductoHasOrden(Long fkIdProduct, Long fkIdOrden) {
+	public ProductoHasOrden(Integer fkIdProduct, Integer fkIdOrden) {
 		super();
 		this.fkIdProduct = fkIdProduct;
 		this.fkIdOrden = fkIdOrden;
-		
+		ProductoHasOrden.total++;
+		this.id=total;
 	}//constructor 
+	
 	public ProductoHasOrden() {
-		
+		ProductoHasOrden.total++;
+		this.id=total;
 	}//constructor vacio 
-	public Long getFkIdProduct() {
+	
+	public Integer getFkIdProduct() {
 		return fkIdProduct;
 	}//getFkIdProduct
-	public void setFkIdProduct(Long fkIdProduct) {
+	
+	public void setFkIdProduct(Integer fkIdProduct) {
 		this.fkIdProduct = fkIdProduct;
 	}//setFkIdProduct
-	public Long getFkIdOrden() {
+	
+	public Integer getFkIdOrden() {
 		return fkIdOrden;
 	}//getFkIdOrden
-	public void setFkIdOrden(Long fkIdOrden) {
+	
+	public void setFkIdOrden(Integer fkIdOrden) {
 		this.fkIdOrden = fkIdOrden;
 	}//setFkIdOrden
+	
+	public Long getId() {
+		return id;
+	}
+
 	@Override
 	public String toString() {
-		return "ProductoHasOrden [fkIdProduct=" + fkIdProduct + ", fkIdOrden=" + fkIdOrden + "]";
-	}// to string
+		return "ProductoHasOrden [id=" + id + ", fkIdProduct=" + fkIdProduct + ", fkIdOrden=" + fkIdOrden + "]";
+	}
+
 	
-	
-}//clas
+}//class

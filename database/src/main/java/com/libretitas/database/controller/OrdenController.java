@@ -1,6 +1,5 @@
 package com.libretitas.database.controller;
 
-
 import java.time.LocalDate;
 import java.util.List;
 
