@@ -11,7 +11,8 @@ VALUES (null, "Alejandra", "Echavarria", "alejandraegib@gmail.com", "Alejandra12
         (null, "Marisol", "Díaz", "jimenezdiazm158@gmail.com", "Mary2322.", 5566173426, 0),
         (null, "Anya" , "Mares" , "anyamares@gmail.com" , "anyvany" , 3317796365, 0),
         (null, "Ana", "Guevara", "anaguevaraaguilar37@gmail.com", "Ana12!", 5551234567, 0),
-		(null, "Stefani", "Cosío", "stefanicos@gmail.com", "Stefani123$", 5580334144, 0);
+		(null, "Stefani", "Cosío", "stefanicos@gmail.com", "Stefani123$", 5580334144, 0),
+        (null, "Griselda", "Romero", "griselda.romero.mart@gmail.com", "Gr1s3lD&", 5540846124, 1);
 
  -- Modificación tipo de variable de decripción de 100 a 150: VARCHAR(150)
  ALTER TABLE producto
