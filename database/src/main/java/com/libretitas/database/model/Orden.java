@@ -20,14 +20,10 @@ public class Orden {
 		
 	}//constructor
 	
-	
-	
 	public Orden() {
 		Orden.total++;
 		this.id=total;
 	}// Constructor vacio
-
-
 
 	public LocalDate getFecha() {
 		return fecha;
