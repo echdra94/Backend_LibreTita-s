@@ -32,14 +32,14 @@ public class ProductoController {
 	
 	//GET un elemento
 	@GetMapping (path="{prodId}") // // http://localhost:8080/api/productos/1
-	public Producto getProducto(@PathVariable ("prodId") Long id) {
-		return service.getProduct(id);
+	public Producto getProducto(@PathVariable ("prodId") Long idProducto) {
+		return service.getProduct(idProducto);
 	}//getProducto uno solo
 	
 	//DELETE
 	@DeleteMapping (path="{prodId}") // http://localhost:8080/api/productos/1
-	public Producto deleteProducto(@PathVariable ("prodId") Long id) {
-		return service.deleteProduct(id);
+	public Producto deleteProducto(@PathVariable ("prodId") Long idProducto) {
+		return service.deleteProduct(idProducto);
 	}// deleteProduct
 	
 	//POST
@@ -55,7 +55,7 @@ public class ProductoController {
 		@RequestParam (name="descripcion",required=false) String descripcion,
 		@RequestParam (name="precio",required=false) Double precio,
 		@RequestParam (name="imagen",required=false) String imagen,
-		@RequestParam (name="existencias",required=false) Integer existencias){
+		@RequestParam (name="existencias",required=false) Long existencias){
 		return service.updateProduct(id, nombreProducto, descripcion, precio, imagen, existencias);
 			
 		}// updateProducto
