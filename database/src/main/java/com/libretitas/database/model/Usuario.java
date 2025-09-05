@@ -1,10 +1,25 @@
 package com.libretitas.database.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//POJO
+
+@Entity
+@Table(name="usuario")
 public class Usuario {
-	private Long id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="idUsuario", unique=true, nullable=false)
+	private Long idUsuario;
 	private String nombre;
 	private String apellido;
 	private String correo;
+	@Column(nullable=false)
 	private String contraseña;
 	private String telefono;
 	private Boolean promociones;
@@ -19,13 +34,13 @@ public class Usuario {
 		this.contraseña = contraseña;
 		this.telefono = telefono;
 		this.promociones = promociones;
-		Usuario.total++;
-		this.id=total;
+		//Usuario.total++;
+		//this.id=total;
 	}//constructor parámetros
 
 	public Usuario() {
 		Usuario.total++;
-		this.id=total;
+		this.idUsuario=Usuario.total;
 	}//constructor vacío
 
 	public String getNombre() {
@@ -77,12 +92,12 @@ public class Usuario {
 	}//SET PROMOCIONES
 
 	public Long getId() {
-		return id;
+		return idUsuario;
 	}//GET ID
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo
+		return "Usuario [id=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo
 				+ ", telefono=" + telefono + ", promociones=" + promociones + "]";
 	}//To String
 	
