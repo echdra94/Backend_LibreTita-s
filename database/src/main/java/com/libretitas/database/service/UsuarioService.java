@@ -42,7 +42,7 @@ public class UsuarioService {
 		Optional<Usuario> usr= 
 				repository.findByCorreo(usuario.getCorreo());
 		if(usr.isEmpty()) {
-			usuario.setContraseña(null);
+			usuario.setContraseña(usuario.getContraseña());
 			repository.save(usuario);
 		} else {
 			usuario = null;
