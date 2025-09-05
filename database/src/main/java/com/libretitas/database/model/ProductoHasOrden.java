@@ -1,22 +1,29 @@
 package com.libretitas.database.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="producto_has_orden")
 public class ProductoHasOrden {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private Integer fkIdProduct;
 	private Integer fkIdOrden;
-	private static long total=0;
+	
 	
 	public ProductoHasOrden(Integer fkIdProduct, Integer fkIdOrden) {
-		super();
+		
 		this.fkIdProduct = fkIdProduct;
 		this.fkIdOrden = fkIdOrden;
-		ProductoHasOrden.total++;
-		this.id=total;
 	}//constructor 
 	
 	public ProductoHasOrden() {
-		ProductoHasOrden.total++;
-		this.id=total;
+		
 	}//constructor vacio 
 	
 	public Integer getFkIdProduct() {

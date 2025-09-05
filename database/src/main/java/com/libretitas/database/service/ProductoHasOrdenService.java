@@ -8,68 +8,42 @@ import org.springframework.stereotype.Service;
 
 import com.libretitas.database.model.Orden;
 import com.libretitas.database.model.ProductoHasOrden;
+import com.libretitas.database.repository.ProductoHasOrdenRepository;
 
 @Service
 public class ProductoHasOrdenService {
-	private final ArrayList<ProductoHasOrden> lista = new ArrayList<ProductoHasOrden>();
+	
+	private final ProductoHasOrdenRepository repository;
 	@Autowired
-	public ProductoHasOrdenService() {
+	public ProductoHasOrdenService(ProductoHasOrdenRepository repository) {
 		//Integer fkIdProduct, Integer fkIdOrden
-		lista.add(new ProductoHasOrden(1,1));
-		lista.add(new ProductoHasOrden(2,2));
-		lista.add(new ProductoHasOrden(4,2));
-		lista.add(new ProductoHasOrden(3,3));
-		lista.add(new ProductoHasOrden(7,4));
-		lista.add(new ProductoHasOrden(7,4));
-		lista.add(new ProductoHasOrden(8,4));
-		lista.add(new ProductoHasOrden(8,5));
-		lista.add(new ProductoHasOrden(8,5));
-		lista.add(new ProductoHasOrden(7,5));
+		this.repository=repository;
 	}//constructor
 	
 	public List<ProductoHasOrden> getProdsHasOrdenes() {
-		return lista;
+		return repository.findAll();
 	}//getProdsHasOrdenes
 
 	public ProductoHasOrden getProdHasOrden(Long id) {
-		ProductoHasOrden tmpPHO = null;
-		for (ProductoHasOrden pho : lista) {
-			if(pho.getId()==id) {
-				tmpPHO=pho;
-				break;
-			}//if
-		}// foreach
-		return tmpPHO;
+		return repository.findById(id).orElseThrow(
+				() -> new IllegalArgumentException("No existe ProductoHasOrden con id [" + id + "]")
+				);
 	}//getProdHasOrden
 
 	public ProductoHasOrden deleteProdHasOrden(Long id) {
-		ProductoHasOrden tmpPHO = null;
-		for (ProductoHasOrden pho : lista) {
-			if(pho.getId()==id) {
-				tmpPHO=pho;
-				lista.remove(pho);
-				break;
-			}//if
-		}// foreach
-		return tmpPHO;
+		ProductoHasOrden tmp = getProdHasOrden(id);
+		return tmp;
 	}//deleteProdHasOrden
 
-	public ProductoHasOrden addProdHasOrden(ProductoHasOrden productoHasorden) {
-		lista.add(productoHasorden);
-		return productoHasorden;
+	public ProductoHasOrden addProdHasOrden(ProductoHasOrden productoHasOrden) {
+		return repository.save(productoHasOrden);
 	}//addProdHasOrden
 
 	public ProductoHasOrden updateProdHasOrden(Long id, Integer fkIdProduct, Integer fkIdOrden) {
-		ProductoHasOrden tmpPHO = null;
-		for (ProductoHasOrden pho : lista) {
-			if(pho.getId()==id) {
-				if(fkIdProduct!=null) pho.setFkIdProduct(fkIdProduct);
-				if(fkIdOrden!=null) pho.setFkIdOrden(fkIdOrden);
-				tmpPHO=pho;
-				break;
-			}//if
-		}// foreach
-		return tmpPHO;
+		ProductoHasOrden tmp = getProdHasOrden(id);
+		if (fkIdProduct!=null) tmp.setFkIdProduct(fkIdProduct);
+		if (fkIdOrden!=null) tmp.setFkIdOrden(fkIdOrden);
+		return repository.save(tmp);
 	}//updateProdHasOrden
 	
 	
