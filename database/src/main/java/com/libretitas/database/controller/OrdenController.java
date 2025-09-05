@@ -33,14 +33,14 @@ public class OrdenController {
 	
 	//GET un elemento
 	@GetMapping(path="{ordenId}") // http://localhost:8080/api/ordenes/1
-	public Orden getOrden(@PathVariable ("ordenId") Long id) {
-		return service.getOrden(id);
+	public Orden getOrden(@PathVariable ("ordenId") Long idOrden) {
+		return service.getOrden(idOrden);
 	}//getOrden solo una
 	
 	//DELETE
 	@DeleteMapping(path="{ordenId}") // http://localhost:8080/api/ordenes/1
-	public Orden deleteOrden(@PathVariable("ordenId") Long id) {
-		return service.deleteOrden(id);
+	public Orden deleteOrden(@PathVariable("ordenId") Long idOrden) {
+		return service.deleteOrden(idOrden);
 	}//deleteOrden
 	
 	//POST
@@ -54,8 +54,8 @@ public class OrdenController {
 	public Orden updateOrden(@PathVariable("ordenId") Long id,
 			@RequestParam (name="fecha", required=false) LocalDate fecha,
 			@RequestParam (name="totalOrden",required=false) Double totalOrden,
-			@RequestParam (name="idUsuario",required=false) Integer idUsuario){
-			return service.updateOrden(id, fecha, totalOrden, idUsuario);
+			@RequestParam (name="idUsuario",required=false) Integer Usuario_idUsuario){
+			return service.updateOrden(id, fecha, totalOrden, Usuario_idUsuario);
 				
 			}// updateOrden
 	
