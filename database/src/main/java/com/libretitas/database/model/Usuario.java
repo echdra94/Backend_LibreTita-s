@@ -22,6 +22,7 @@ public class Usuario {
 	@Column(nullable=false)
 	private String contraseña;
 	private String telefono;
+	@Column(nullable = false, columnDefinition = "TINYINT(1)")
 	private Boolean promociones;
 	private static long total=0;
 	

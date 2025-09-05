@@ -39,7 +39,7 @@ public class ProductoHasOrdenService {
 		return repository.save(productoHasOrden);
 	}//addProdHasOrden
 
-	public ProductoHasOrden updateProdHasOrden(Long id, Integer fkIdProduct, Integer fkIdOrden) {
+	public ProductoHasOrden updateProdHasOrden(Long id, Long fkIdProduct, Long fkIdOrden) {
 		ProductoHasOrden tmp = getProdHasOrden(id);
 		if (fkIdProduct!=null) tmp.setFkIdProduct(fkIdProduct);
 		if (fkIdOrden!=null) tmp.setFkIdOrden(fkIdOrden);

@@ -11,12 +11,12 @@ import javax.persistence.Table;
 public class ProductoHasOrden {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
-	private Integer fkIdProduct;
-	private Integer fkIdOrden;
+	private Long idProductoHasOrden;
+	private Long fkIdProduct;
+	private Long fkIdOrden;
 	
 	
-	public ProductoHasOrden(Integer fkIdProduct, Integer fkIdOrden) {
+	public ProductoHasOrden(Long fkIdProduct, Long fkIdOrden) {
 		
 		this.fkIdProduct = fkIdProduct;
 		this.fkIdOrden = fkIdOrden;
@@ -26,29 +26,29 @@ public class ProductoHasOrden {
 		
 	}//constructor vacio 
 	
-	public Integer getFkIdProduct() {
+	public Long getFkIdProduct() {
 		return fkIdProduct;
 	}//getFkIdProduct
 	
-	public void setFkIdProduct(Integer fkIdProduct) {
+	public void setFkIdProduct(Long fkIdProduct) {
 		this.fkIdProduct = fkIdProduct;
 	}//setFkIdProduct
 	
-	public Integer getFkIdOrden() {
+	public Long getFkIdOrden() {
 		return fkIdOrden;
 	}//getFkIdOrden
 	
-	public void setFkIdOrden(Integer fkIdOrden) {
+	public void setFkIdOrden(Long fkIdOrden) {
 		this.fkIdOrden = fkIdOrden;
 	}//setFkIdOrden
 	
 	public Long getId() {
-		return id;
+		return idProductoHasOrden;
 	}
 
 	@Override
 	public String toString() {
-		return "ProductoHasOrden [id=" + id + ", fkIdProduct=" + fkIdProduct + ", fkIdOrden=" + fkIdOrden + "]";
+		return "ProductoHasOrden [id=" + idProductoHasOrden + ", fkIdProduct=" + fkIdProduct + ", fkIdOrden=" + fkIdOrden + "]";
 	}
 
 	

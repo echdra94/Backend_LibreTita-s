@@ -54,7 +54,7 @@ public class OrdenController {
 	public Orden updateOrden(@PathVariable("ordenId") Long id,
 			@RequestParam (name="fecha", required=false) LocalDate fecha,
 			@RequestParam (name="totalOrden",required=false) Double totalOrden,
-			@RequestParam (name="idUsuario",required=false) Integer Usuario_idUsuario){
+			@RequestParam (name="idUsuario",required=false) Long Usuario_idUsuario){
 			return service.updateOrden(id, fecha, totalOrden, Usuario_idUsuario);
 				
 			}// updateOrden

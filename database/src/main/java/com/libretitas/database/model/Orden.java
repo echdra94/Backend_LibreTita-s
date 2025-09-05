@@ -21,10 +21,10 @@ public class Orden {
 	@Column(nullable=false)
 	private Double totalOrden;
 	@Column(nullable=false)
-	private Integer Usuario_idUsuario;
+	private Long Usuario_idUsuario;
 	private static long total=0;
 	
-	public Orden(LocalDate fecha, Double totalOrden, Integer Usuario_idUsuario) {
+	public Orden(LocalDate fecha, Double totalOrden, Long Usuario_idUsuario) {
 		super();
 		this.fecha = fecha;
 		this.totalOrden = totalOrden;
@@ -55,11 +55,11 @@ public class Orden {
 		this.totalOrden = totalOrden;
 	}//SET TOTAL
 
-	public Integer getUsuario_idUsuario() {
+	public Long getUsuario_idUsuario() {
 		return Usuario_idUsuario;
 	}//GET ID USUARIO
 
-	public void setUsuario_idUsuario(Integer Usuario_idUsuario) {
+	public void setUsuario_idUsuario(Long Usuario_idUsuario) {
 		this.Usuario_idUsuario = Usuario_idUsuario;
 	}//SET ID USUARIO
 

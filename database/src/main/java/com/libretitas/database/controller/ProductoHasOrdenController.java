@@ -52,8 +52,8 @@ public class ProductoHasOrdenController {
 	//PUT
 	@PutMapping(path="{ProductoHasOrdenId}") // http://localhost:8080/api/Producto_has_Orden/1
 	public ProductoHasOrden updateProdHasOrden(@PathVariable("ProductoHasOrdenId")Long id,
-			@RequestParam (name="fkIdProduct", required=false)Integer fkIdProduct ,
-			@RequestParam (name="fkIdOrden", required=false)Integer fkIdOrden) {
+			@RequestParam (name="fkIdProduct", required=false)Long fkIdProduct ,
+			@RequestParam (name="fkIdOrden", required=false)Long fkIdOrden) {
 		return service.updateProdHasOrden(id,fkIdProduct,fkIdOrden);
 	}//updateProdHasOrden
 }// PHOController

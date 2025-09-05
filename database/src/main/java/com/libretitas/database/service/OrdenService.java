@@ -51,7 +51,7 @@ public class OrdenService {
 		return orden;
 	}// addOrden
 	
-	public Orden updateOrden(Long idOrden, LocalDate fecha, Double totalOrden, Integer Usuario_idUsuario) {
+	public Orden updateOrden(Long idOrden, LocalDate fecha, Double totalOrden, Long Usuario_idUsuario) {
 		Orden tmpOrd=null;
 		
 			if(repository.existsById(idOrden)) {
