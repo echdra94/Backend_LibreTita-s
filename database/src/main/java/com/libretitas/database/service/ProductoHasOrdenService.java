@@ -1,12 +1,11 @@
 package com.libretitas.database.service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.libretitas.database.model.Orden;
 import com.libretitas.database.model.ProductoHasOrden;
 import com.libretitas.database.repository.ProductoHasOrdenRepository;
 
@@ -24,14 +23,18 @@ public class ProductoHasOrdenService {
 		return repository.findAll();
 	}//getProdsHasOrdenes
 
-	public ProductoHasOrden getProdHasOrden(Long id) {
-		return repository.findById(id).orElseThrow(
-				() -> new IllegalArgumentException("No existe ProductoHasOrden con id [" + id + "]")
+	public ProductoHasOrden getProdHasOrden(Long idProductoHasOrden) {
+		return repository.findById(idProductoHasOrden).orElseThrow(
+				() -> new IllegalArgumentException("No existe ProductoHasOrden con id [" + idProductoHasOrden + "]")
 				);
 	}//getProdHasOrden
 
-	public ProductoHasOrden deleteProdHasOrden(Long id) {
-		ProductoHasOrden tmp = getProdHasOrden(id);
+	public ProductoHasOrden deleteProdHasOrden(Long idProductoHasOrden) {
+		ProductoHasOrden tmp = null;
+		if (repository.existsById(idProductoHasOrden)) {
+			tmp =  repository.findById(idProductoHasOrden).get();
+			repository.deleteById(idProductoHasOrden);
+		}//if
 		return tmp;
 	}//deleteProdHasOrden
 

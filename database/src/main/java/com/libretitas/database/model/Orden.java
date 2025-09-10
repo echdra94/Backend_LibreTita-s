@@ -22,7 +22,7 @@ public class Orden {
 	private Double totalOrden;
 	@Column(nullable=false)
 	private Long Usuario_idUsuario;
-	private static long total=0;
+
 	
 	public Orden(LocalDate fecha, Double totalOrden, Long Usuario_idUsuario) {
 		super();
@@ -71,7 +71,7 @@ public class Orden {
 
 	@Override
 	public String toString() {
-		return "Orden [id=" + idOrden + ", fecha=" + fecha + ", totalOrden=" + totalOrden + ", idUsuario=" + Usuario_idUsuario + "]";
+		return "Orden [idOrden=" + idOrden + ", fecha=" + fecha + ", totalOrden=" + totalOrden + ", idUsuario=" + Usuario_idUsuario + "]";
 	}// TO STRING
 		
 

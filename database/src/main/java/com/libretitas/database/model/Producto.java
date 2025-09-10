@@ -23,7 +23,6 @@ public class Producto {
 	private Double precio;
 	private String imagen;
 	private Long existencias;
-	private static long total =0;
 	
 	public Producto(String nombreProducto, String descripcion, Double precio, String imagen, Long existencias) {
 		super();

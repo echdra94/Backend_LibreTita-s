@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Service;
 import com.libretitas.database.model.Orden;
 import com.libretitas.database.repository.OrdenRepository;
@@ -41,14 +42,7 @@ public class OrdenService {
 	}// deleteOrden
 	
 	public Orden addOrden(Orden orden) {
-		Optional<Orden> ord = 
-		repository.findById(orden.getId());
-		if (ord.isEmpty()) {
-			repository.save(orden);
-		}else {
-			orden = null;
-		}// else
-		return orden;
+		return repository.save(orden);
 	}// addOrden
 	
 	public Orden updateOrden(Long idOrden, LocalDate fecha, Double totalOrden, Long Usuario_idUsuario) {

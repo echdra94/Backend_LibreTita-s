@@ -51,11 +51,11 @@ public class OrdenController {
 	
 	//PUT 
 	@PutMapping (path= "{ordenId}") //http://localhost:8080/api/ordenes/1
-	public Orden updateOrden(@PathVariable("ordenId") Long id,
+	public Orden updateOrden(@PathVariable("ordenId") Long idOrden,
 			@RequestParam (name="fecha", required=false) LocalDate fecha,
 			@RequestParam (name="totalOrden",required=false) Double totalOrden,
 			@RequestParam (name="idUsuario",required=false) Long Usuario_idUsuario){
-			return service.updateOrden(id, fecha, totalOrden, Usuario_idUsuario);
+			return service.updateOrden(idOrden, fecha, totalOrden, Usuario_idUsuario);
 				
 			}// updateOrden
 	
