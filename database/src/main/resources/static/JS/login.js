@@ -51,6 +51,7 @@ btnEnviar.addEventListener("click", function (event) {
         // Guardar token JWT en sessionStorage
 		console.log("Respuesta login:", data);
         sessionStorage.setItem("authToken", data.accesToken);
+		sessionStorage.setItem("idUsuario",data.id);
 
         // --- ALERTA LOGIN EXITOSO ---
         alertValidacionesTexto.innerHTML = "<strong class='text-success'>¡Inicio de sesión exitoso!</strong>";

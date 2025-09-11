@@ -1,7 +1,7 @@
-const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+const token = sessionStorage.getItem("authToken");
 
-if (!loggedInUser) {
-    // Si no hay sesión, redirige al login
+if (!token) {
+    // No hay token → redirige a login
     window.location.href = "login.html";
 }
 

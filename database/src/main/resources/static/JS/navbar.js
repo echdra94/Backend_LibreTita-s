@@ -6,10 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Espera a que el HTML del navbar esté insertado
       const perfil = document.getElementById("perfil");
-      const usuarioLogueado = localStorage.getItem("loggedInUser");
+	  const token = sessionStorage.getItem("authToken");
+      
 
       if (perfil) {
-        if (usuarioLogueado) {
+        if (token) {
           perfil.style.display = "inline"; // o "block"
         } else {
           perfil.style.display = "none";
