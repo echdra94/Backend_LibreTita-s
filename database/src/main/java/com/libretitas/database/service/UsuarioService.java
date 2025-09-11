@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.libretitas.database.dto.CambiarContraseña;
 import com.libretitas.database.model.Usuario;
@@ -13,6 +14,8 @@ import com.libretitas.database.repository.UsuariosRepository;
 @Service
 public class UsuarioService {
 	private final UsuariosRepository repository;
+	@Autowired
+	private PasswordEncoder encoder;
 	@Autowired
 	public UsuarioService(UsuariosRepository repository) {
 	this.repository = repository;
@@ -42,7 +45,7 @@ public class UsuarioService {
 		Optional<Usuario> usr= 
 				repository.findByCorreo(usuario.getCorreo());
 		if(usr.isEmpty()) {
-			usuario.setContraseña(usuario.getContraseña());
+			usuario.setContraseña(encoder.encode(usuario.getContraseña()));
 			repository.save(usuario);
 		} else {
 			usuario = null;
@@ -54,8 +57,9 @@ public class UsuarioService {
 	Usuario usuario = null;
 	if(repository.existsById(idUsuario)) {
 		usuario=repository.findById(idUsuario).get();
-		if (usuario.getContraseña().equals(cambiarContraseña.getContraseña())) {
-			usuario.setContraseña(cambiarContraseña.getNcontraseña() );
+		//if(usuario.getContraseña().equals(cambiarContraseña.getContraseña())) {
+		if(encoder.matches(cambiarContraseña.getContraseña(), usuario.getContraseña()))	{
+		usuario.setContraseña(encoder.encode(cambiarContraseña.getNcontraseña()) );
 			return repository.save(usuario);
 		} else {
 			usuario=null;
@@ -63,6 +67,17 @@ public class UsuarioService {
 	}//if exists 
 	return usuario;
 	}//updateUsuario
+
+	public boolean validateUser(Usuario usuario) {
+		Optional<Usuario> user= repository.findByCorreo(usuario.getCorreo());
+		if (user.isPresent()) {
+			Usuario tmpUser = user.get();
+			if(encoder.matches(usuario.getContraseña(), tmpUser.getContraseña())) {
+				return true;
+			}//if Matches
+		}//isPresent
+		return false;
+	}//validateUser
 
 	
 }//class UsuarioService
