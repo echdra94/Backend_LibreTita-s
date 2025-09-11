@@ -2,6 +2,7 @@ package com.libretitas.database.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,8 @@ import com.libretitas.database.service.ProductoService;
 
 @RestController
 @RequestMapping(path="/api/productos/") // http://localhost:8080/api/productos/
+//@CrossOrigin(origins="http://http://127.0.0.1:5501")
+@CrossOrigin(origins="*")
 public class ProductoController {
 	private final ProductoService service;
 	@Autowired
@@ -54,9 +57,10 @@ public class ProductoController {
 		@RequestParam (name="nombreProducto", required=false) String nombreProducto,
 		@RequestParam (name="descripcion",required=false) String descripcion,
 		@RequestParam (name="precio",required=false) Double precio,
-		@RequestParam (name="imagen",required=false) String imagen,
-		@RequestParam (name="existencias",required=false) Long existencias){
-		return service.updateProduct(id, nombreProducto, descripcion, precio, imagen, existencias);
+		@RequestParam (name="imagen",required=false) String imagen)
+		//@RequestParam (name="existencias",required=false) Long existencias)
+		{
+		return service.updateProduct(id, nombreProducto, descripcion, precio, imagen);
 			
 		}// updateProducto
 	

@@ -47,7 +47,7 @@ import com.libretitas.database.repository.ProductosRepository;
 		return producto;
 	}// addProduct
 	
-	public Producto updateProduct(Long idProducto, String nombreProducto, String descripcion, Double precio, String imagen,Long existencias) {
+	public Producto updateProduct(Long idProducto, String nombreProducto, String descripcion, Double precio, String imagen) {
 		Producto tmpProd = null;
 		
 		if(repository.existsById(idProducto)) {
@@ -56,7 +56,7 @@ import com.libretitas.database.repository.ProductosRepository;
 			if(descripcion!=null)prod.setDescripcion(descripcion);
 			if(precio!=null)prod.setPrecio(precio);
 			if(imagen!=null)prod.setImagen(imagen);
-			if(existencias!=null)prod.setExistencias(existencias);
+			//if(existencias!=null)prod.setExistencias(existencias);
 			repository.save(prod);
 			tmpProd=prod;
 		}//if

@@ -22,15 +22,15 @@ public class Producto {
 	@Column(nullable=false)
 	private Double precio;
 	private String imagen;
-	private Long existencias;
+	//private Long existencias;
 	
-	public Producto(String nombreProducto, String descripcion, Double precio, String imagen, Long existencias) {
+	public Producto(String nombreProducto, String descripcion, Double precio, String imagen) {
 		super();
 		this.nombreProducto = nombreProducto;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.imagen = imagen;
-		this.existencias = existencias;
+		//this.existencias = existencias;
 		//Producto.total++;
 		//this.id=total;
 	}// Constructor
@@ -64,13 +64,13 @@ public class Producto {
 		this.imagen = imagen;
 	}// SET IMAGE
 
-	public Long getExistencias() {
-		return existencias;
-	}// GET EXISTENCIAS
+	//public Long getExistencias() {
+	//	return existencias;
+	//}// GET EXISTENCIAS
 
-	public void setExistencias(Long existencias) {
-		this.existencias = existencias;
-	}// SET EXISTENCIAS
+	//public void setExistencias(Long existencias) {
+	//	this.existencias = existencias;
+	//}// SET EXISTENCIAS
 
 	public Double getPrecio() {
 		return precio;
@@ -87,7 +87,7 @@ public class Producto {
 	@Override
 	public String toString() {
 		return "Producto [id=" + idProducto + ", nombreProducto=" + nombreProducto + ", descripcion=" + descripcion
-				+ ", imagen=" + imagen + ", existencias=" + existencias + ", precio=" + precio + "]";
+				+ ", imagen=" + imagen + ", precio=" + precio + "]";
 	}// TO STRING
 	
 }// class Producto

@@ -22,26 +22,23 @@ public class Usuario {
 	@Column(nullable=false)
 	private String contraseña;
 	private String telefono;
-	@Column(nullable = false, columnDefinition = "TINYINT(1)")
-	private Boolean promociones;
 	private static long total=0;
 	
-	public Usuario(String nombre, String apellido, String correo, String contraseña, String telefono,
-			Boolean promociones) {
+	public Usuario(String nombre, String apellido, String correo, String contraseña, String telefono) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
 		this.contraseña = contraseña;
 		this.telefono = telefono;
-		this.promociones = promociones;
+		//this.promociones = promociones;
 		//Usuario.total++;
 		//this.id=total;
 	}//constructor parámetros
 
 	public Usuario() {
-		Usuario.total++;
-		this.idUsuario=Usuario.total;
+		//Usuario.total++;
+		//this.idUsuario=Usuario.total;
 	}//constructor vacío
 
 	public String getNombre() {
@@ -84,13 +81,13 @@ public class Usuario {
 		this.telefono = telefono;
 	}//SET TELEFONO
 
-	public Boolean getPromociones() {
-		return promociones;
-	}//GET PROMOCIONES
+	//public Boolean getPromociones() {
+	////	return promociones;
+	//}//GET PROMOCIONES
 
-	public void setPromociones(Boolean promociones) {
-		this.promociones = promociones;
-	}//SET PROMOCIONES
+	//public void setPromociones(Boolean promociones) {
+	//	this.promociones = promociones;
+	//}//SET PROMOCIONES
 
 	public Long getId() {
 		return idUsuario;
@@ -99,7 +96,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo
-				+ ", telefono=" + telefono + ", promociones=" + promociones + "]";
+				+ ", telefono=" + telefono + "]";
 	}//To String
 	
 	

@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS `DB_LibreTitas`.`Producto` (
   `descripcion` VARCHAR(500) NOT NULL,
   `precio` DOUBLE NOT NULL,
   `imagen` VARCHAR(250) NOT NULL,
-  `existencias` BIGINT ZEROFILL NOT NULL,
   PRIMARY KEY (`idProducto`))
 ENGINE = InnoDB;
 
@@ -38,7 +37,6 @@ CREATE TABLE IF NOT EXISTS `DB_LibreTitas`.`Usuario` (
   `correo` VARCHAR(45) NOT NULL,
   `contraseña` VARCHAR(300) NOT NULL,
   `telefono` VARCHAR(45) NOT NULL,
-  `promociones` TINYINT NOT NULL,
   PRIMARY KEY (`idUsuario`))
 ENGINE = InnoDB;
 
